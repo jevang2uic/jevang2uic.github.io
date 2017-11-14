@@ -165,15 +165,28 @@
             <div class="row" id="rows">
               <div id = "template" class="card hidden col-md-4">
                 <div class="portfolio-item">
-                  <h3 class="card-title">
+                  <br>
+                  <div class="card">
+                    <!--<div class="card-block">-->
+                     <!--<img class="card-img-top" src=#>-->
+                      <h4 class="card-title">Card title</h4>
+                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p>
+                        <a href="#" class="card-link" id="live">Card link</a>
+                        <a href="#" class="card-link" id="github">Another link</a>
+                      </p>
+                    <!--</div>-->
+                  </div>
+                  <!--<h3 class="card-title">-->
                     <!--Quote-->
-                  </h3>
-                  <div class="card-block">
-                    <blockquote class="card-blockquote">
+                  <!--</h3>-->
+                  <!--<div class="card-block">-->
+                  <!--  <blockquote class="card-blockquote">-->
                       <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>-->
                       <!--<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>-->
-                    </blockquote>
-                  </div>
+                  <!--  </blockquote>-->
+                  <!--</div>-->
                 </div>
               </div>
             </div>
@@ -266,8 +279,9 @@
       $(document).ready(function(){
         
         var response = [
-        {"name": "Service Workered Weather Webapp", "display": true, "description" : "A weather app that makes use of a service work", "technologies": "AJAX, Responsive Design, Service Workers", "image" : "<img src=#>", "github": "<a href=\"https://github.com/jevang2uic/IT202/tree/master/project5\">", "link": "<a href=\"https://jevang2uic.github.io/IT202/project5/\">"},
-        {"name": "3 Screen Chicago Food Inspection Search Engine", "display": true, "description" : "A webapp that makes use of the Chicago City Data API to display the results of a food inspections", "technologies": "AJAX, Responsive Design, Bootstrap", "image" : "<img src=#>", "github": "<a href=\"https://github.com/jevang2uic/IT202/tree/master/project3\">", "link": "<a href=\"https://jevang2uic.github.io/IT202/project3/\">"}
+        {"name": "Service Workered Weather Webapp", "display": true, "description" : "A weather app that makes use of a service work", "technologies": "AJAX, Responsive Design, Service Workers", "image" : "<img src=#>", "github": "https://github.com/jevang2uic/IT202/tree/master/project5", "link": "https://jevang2uic.github.io/IT202/project5/"},
+        {"name": "3 Screen Chicago Food Inspection Search Engine", "display": true, "description" : "A webapp that makes use of the Chicago City Data API to display the results of a food inspections", "technologies": "AJAX, Responsive Design, Bootstrap", "image" : "<img src=#>", "github": "https://github.com/jevang2uic/IT202/tree/master/project3", "link": "https://jevang2uic.github.io/IT202/project3/"},
+        {"name": "A simple Javascript game", "display": true, "description" : "A simple game using javascript and html that is in progress to be similar to galaga", "technologies": "Canvas", "image" : "<img src=#>", "github": "https://github.com/jevang2uic/IT202/tree/master/project4", "link": "https://jevang2uic.github.io/IT202/project4/"}
           ]
     
         $.each(response,function(i,v){
@@ -277,12 +291,12 @@
             $("#template").clone().removeClass("hidden").attr("id","request" + i).appendTo("#rows");
             $("#request" + i).find( ".card-title" ).text(v.name);
             //$("#request" + i).find( ".panel-body" ).text("");
-            $("#request" + i).find( ".card-blockquote" ).html("<p>" + v.description + "</p>"
-                                                            + "<p>" + v.technologies + "</p>"
-                                                            // + v.image 
-                                                            + "<p>" + v.link + "Live Here</a></p>"
-                                                            + "<p>" + v.github + "Code Here</a></p>"
-                                                            );
+            $("#request" + i).find( ".card-subtitle" ).text( v.technologies)
+            $("#request" + i).find( ".card-text" ).text( v.description);
+            $("#request" + i).find( "#live" ).text( "Live Here");
+            $("#request" + i).find( "#live" ).attr("href",v.link)
+            $("#request" + i).find( "#github" ).text( "Github");
+            $("#request" + i).find( "#github" ).attr( "href", v.github);
             if(v.display){
               $("#request" + i).show();
             }
