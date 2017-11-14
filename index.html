@@ -165,9 +165,9 @@
             <div class="row" id="rows">
               <div id = "template" class="card hidden col-md-4">
                 <div class="portfolio-item">
-                  <div class="card-header">
+                  <h3 class="card-title">
                     <!--Quote-->
-                  </div>
+                  </h3>
                   <div class="card-block">
                     <blockquote class="card-blockquote">
                       <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>-->
@@ -275,7 +275,7 @@
             //$("body").append("<p><strong>" + v.service_request_number + "</strong><ul><li>" + v.street_address + "</li><li>" + v.status + "</li></ul></p><br>");
             
             $("#template").clone().removeClass("hidden").attr("id","request" + i).appendTo("#rows");
-            $("#request" + i).find( ".card-header" ).text(v.name);
+            $("#request" + i).find( ".card-title" ).text(v.name);
             //$("#request" + i).find( ".panel-body" ).text("");
             $("#request" + i).find( ".card-blockquote" ).html("<p>" + v.description + "</p>"
                                                             + "<p>" + v.technologies + "</p>"
